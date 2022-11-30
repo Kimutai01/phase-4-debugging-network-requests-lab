@@ -63,11 +63,22 @@ developing your own process.
 - Add a new toy when the toy form is submitted
 
   - How I debugged:
+  * I added a new toy and checked the console for errors. The error was Unexpected token < in JSON at position 0.
+  * On checking the toys_controller.rb file, I noticed that the create method was using Toys instead of Toy.
+  * I changed the create method to use Toy instead of Toys and the error was resolved.
+  * I then changed the #create to #create! to raise an error if the toy was not created.
+
+
 
 - Update the number of likes for a toy
 
   - How I debugged:
+  * I clicked on the like button and checked the console for errors. The error was Unexpected token < in JSON at position 0.
+  * On checking the update method in the toys_controller.rb file, I noticed that the update method was not rendering json
 
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+  * On clicking the donate button, I got "Failed to load resource: the server responded with a status of 404 (Not Found)" error.
+  * I checked the routes.rb file and on the resources :toys, I noticed that the destroy route was missing.
+  * I added the destroy route and the error was resolved.
